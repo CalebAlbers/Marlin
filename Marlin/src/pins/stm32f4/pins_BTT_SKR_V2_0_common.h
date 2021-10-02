@@ -154,13 +154,6 @@
 #endif
 
 //
-// NeoPixel LED
-//
-#ifndef NEOPIXEL_PIN
-  #define NEOPIXEL_PIN                      PE6
-#endif
-
-//
 // Control pin of driver/heater/fan power supply
 //
 #define SAFE_POWER_PIN                      PC13
@@ -210,7 +203,7 @@
 #define TEMP_0_PIN                          PA2   // TH0
 #define TEMP_1_PIN                          PA3   // TH1
 
-#if HOTENDS == 1
+#if HOTENDS == 1 && DISABLED(HEATERS_PARALLEL)
   #if TEMP_SENSOR_PROBE
     #define TEMP_PROBE_PIN            TEMP_1_PIN
   #elif TEMP_SENSOR_CHAMBER
@@ -348,7 +341,6 @@
 
 #elif SD_CONNECTION_IS(LCD)
 
-  #define CUSTOM_SPI_PINS
   #define SDSS                              PA4
   #define SD_SS_PIN                         SDSS
   #define SD_SCK_PIN                        PA5
@@ -502,14 +494,21 @@
 // Alter timing for graphical display
 #if HAS_MARLINUI_U8GLIB
   #ifndef BOARD_ST7920_DELAY_1
-    #define BOARD_ST7920_DELAY_1    DELAY_NS(96)
+    #define BOARD_ST7920_DELAY_1   DELAY_NS(120)
   #endif
   #ifndef BOARD_ST7920_DELAY_2
-    #define BOARD_ST7920_DELAY_2    DELAY_NS(48)
+    #define BOARD_ST7920_DELAY_2    DELAY_NS(80)
   #endif
   #ifndef BOARD_ST7920_DELAY_3
-    #define BOARD_ST7920_DELAY_3   DELAY_NS(600)
+    #define BOARD_ST7920_DELAY_3   DELAY_NS(580)
   #endif
+#endif
+
+//
+// NeoPixel LED
+//
+#ifndef NEOPIXEL_PIN
+  #define NEOPIXEL_PIN                      PE6
 #endif
 
 //
