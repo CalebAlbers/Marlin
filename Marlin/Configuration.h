@@ -104,7 +104,8 @@
  *
  * :[-1, 0, 1, 2, 3, 4, 5, 6, 7]
  */
-#define SERIAL_PORT 2
+// because of the way it is: https://www.reddit.com/r/BIGTREETECH/comments/ebew08/comment/fb7jdmt/?utm_source=share&utm_medium=web2x&context=3
+#define SERIAL_PORT -1
 
 /**
  * Serial Port Baud Rate
@@ -125,7 +126,8 @@
  * Currently Ethernet (-2) is only supported on Teensy 4.1 boards.
  * :[-2, -1, 0, 1, 2, 3, 4, 5, 6, 7]
  */
-//#define SERIAL_PORT_2 -1
+ // also because of the way it is: https://www.reddit.com/r/BIGTREETECH/comments/ebew08/comment/fb7jdmt/?utm_source=share&utm_medium=web2x&context=3
+#define SERIAL_PORT_2 2
 //#define BAUDRATE_2 250000   // Enable to override BAUDRATE
 
 /**
@@ -2421,7 +2423,7 @@
 // MKS LCD12864A/B with graphic controller and SD support. Follows MKS_MINI_12864 pinout.
 // https://www.aliexpress.com/item/33018110072.html
 //
-//#define MKS_LCD12864
+// #define MKS_LCD12864
 
 //
 // FYSETC variant of the MINI12864 graphic controller with SD support
@@ -2604,7 +2606,7 @@
 // Third-party or vendor-customized controller interfaces.
 // Sources should be installed in 'src/lcd/extui'.
 //
-//#define EXTENSIBLE_UI
+// #define EXTENSIBLE_UI
 
 #if ENABLED(EXTENSIBLE_UI)
   //#define EXTUI_LOCAL_BEEPER // Enables use of local Beeper pin with external display
